@@ -1,4 +1,6 @@
-## 설치 및 세팅 하기
+# (복습) Nomad - ReactJS로 영화 웹 서비스 만들기
+
+## Setting
 
 - React app 만들기
 
@@ -33,7 +35,7 @@
 
   4. (확인) homepage url 업데이트 확인
 
-## skills
+## Learned Skills
 
 - useState
 
