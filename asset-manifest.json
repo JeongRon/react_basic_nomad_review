@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_basic_nomad_review/static/css/main.b5ac4ee3.css",
+    "main.js": "/react_basic_nomad_review/static/js/main.8e171645.js",
+    "index.html": "/react_basic_nomad_review/index.html",
+    "main.b5ac4ee3.css.map": "/react_basic_nomad_review/static/css/main.b5ac4ee3.css.map",
+    "main.8e171645.js.map": "/react_basic_nomad_review/static/js/main.8e171645.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5ac4ee3.css",
+    "static/js/main.8e171645.js"
+  ]
+}
