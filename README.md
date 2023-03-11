@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+## 설치 및 세팅 하기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- React app 만들기
 
-## Available Scripts
+  - npx create-react-app my-app
 
-In the project directory, you can run:
+- React 실행
 
-### `npm start`
+  - npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- react-router-dom 사용
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  - Router, Switch, Route, Link, useParams() 활용 가능
+  - npm i react-router-dom@5.3.0
 
-### `npm test`
+- github pages 배포
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  1. (설치) npm i gh-pages
+  2. (추가) package.json 에 코드 추가
 
-### `npm run build`
+     - (1) 홈페이지 url 만들기
+       - `"homepage": "https://JeongRon.github.io/react_basic_nomad"`
+         - 깃허브 아이디 (+) github.io/ (+) 레포지터리 이름
+     - (2) "scipts" 안에 "deploy" 추가
+       - `"deploy" : "gh-pages -d build"`
+         - gh-pages 실행시키고, build 디렉토리 가져감
+       - `"predeploy" : "npm run build"`
+         - deploy 전에 자동으로 build 시키도록 넣은 코드
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  3. (실행) `npm run deploy`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+     - "predeploy" 실행 -> "deploy" 실행
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  4. (확인) homepage url 업데이트 확인
 
-### `npm run eject`
+## skills
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- useState
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - 업데이트 발생 시, 프로그램이 실행 하는 도중 값이 변할 때 활용
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  ```js
+  // 1. import useState
+  import { useState } from "react";
+  function App() {
+    // 2. useState 활용 변수 선언 및 초기화
+    const [counter, setCounter] = React.useState(0);
+    const onClick = () => {
+      // 3. 이벤트 발생 시, useState 변수 값 변경
+      setCounter((current) => current + 1);
+    };
+    return (
+      <div>
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={onClick}>Click me</button>
+      </div>
+    );
+  }
+  ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- useEffect
 
-## Learn More
+  - 불필요한 리렌더링을 줄일때 활용
+  - 업데이트 시 리렌더링 발생 -> 업데이트 된 컴포넌트 모든 코드가 실행
+  - 활용 상황 예시
+    1. 컴포넌트가 처음 rendering 되었을 때만 실행 할 코드
+    2. 어느 특정 state에 변화가 있을 때만 실행할 코드
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  ```js
+  // import useEffect
+  import { useState, useEffect } from "react";
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  function Search() {
+    const [keyword, setKeyword] = useState("");
+    const onChange = (event) => setKeyword(event.target.value);
+    // Search 컴포넌트 처음 렌더링시 실행
+    useEffect(() => {
+      console.log("i run only once.");
+    }, []);
+    // keyword 값이 변할 때 실행
+    useEffect(() => {
+      console.log("i run when 'keyword' changes");
+    }, [keyword]);
+    return (
+      <input
+        value={keyword}
+        onChange={onChange}
+        type="text"
+        placeholder="Search here..."
+      />
+    );
+  }
+  ```
 
-### Code Splitting
+- css 코드 자바스크립트 객체로 변환해서 사용
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - module.css 파일로 만들어서 활용 가능
+  - html 코드 보면, 자동으로 클래스네임 설정됨
 
-### Analyzing the Bundle Size
+  ```js
+  // 1. import module.css
+  import styles from "./Button.module.css";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  function Button() {
+    // 2. className={}
+    return <button className={styles.btn}>BUTTON</button>;
+  }
 
-### Making a Progressive Web App
+  export default Button;
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- movie api 데이터 가져오기
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  - async / await

@@ -1,0 +1,27 @@
+.body {
+  margin: 0 auto;
+  width: 800px;
+  background-color: rgb(255, 245, 228);
+  border-radius: 3%;
+}
+
+.detail_container {
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+}
+.detail_container_left {
+  width: 50%;
+  margin: 5% auto;
+}
+.detail_img {
+  border-radius: 5%;
+  width: 90%;
+}
+.detail_container_right {
+  width: 50%;
+  height: 486px;
+  background-color: rgb(236, 242, 255);
+  margin: 5% auto;
+  border-radius: 5%;
+}

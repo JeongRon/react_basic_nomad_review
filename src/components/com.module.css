@@ -1,0 +1,29 @@
+.loading {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+  font-weight: 900;
+  color: rgb(234, 143, 234);
+}
+.link {
+  text-decoration: none;
+}
+.header {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+  font-weight: 900;
+  color: rgb(234, 143, 234);
+}
+.img {
+  width: 23%;
+  padding: 1%;
+  border-radius: 10%;
+}
+.info_container {
+  margin: 0 auto;
+  width: 95%;
+  height: 486px;
+  color: rgb(255, 148, 148);
+  overflow: scroll;
+}
